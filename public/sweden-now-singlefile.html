@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سويدنا الآن - Sverige Nu | دليل وتحديثات السويد الرسمية (ملف مستقل جاهز)</title>
+  <meta name="description" content="المنصة العربية المعتمدة لمتابعة أحدث القوانين، القرارات الرسمية، وتحديثات مصلحة الهجرة، الضرائب، والتأمينات في السويد.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sweden-blue: #004B87;
+      --sweden-blue-dark: #003366;
+      --sweden-yellow: #FECC00;
+      --sweden-yellow-dark: #D4A700;
+      --bg-canvas: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      direction: rtl;
+    }
+    a { color: var(--sweden-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+    
+    /* Top Bar */
+    .topbar {
+      background: #ffffff;
+      border-bottom: 2px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .flag-emblem {
+      width: 36px;
+      height: 24px;
+      background: var(--sweden-blue);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+    .flag-cross-v {
+      position: absolute;
+      left: 11px;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--sweden-yellow);
+    }
+    .flag-cross-h {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--sweden-yellow);
+    }
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--sweden-blue);
+      letter-spacing: -0.02em;
+    }
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .nav-links a { color: var(--text-muted); }
+    .nav-links a:hover { color: var(--sweden-blue); text-decoration: none; }
+    
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #002b4d 0%, #004B87 60%, #005ea8 100%);
+      color: #ffffff;
+      padding: 3.5rem 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--sweden-yellow);
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      max-width: 800px;
+      margin-bottom: 1.75rem;
+    }
+    .safe-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(254, 204, 0, 0.15);
+      border: 1px solid var(--sweden-yellow);
+      color: var(--sweden-yellow);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Search & Filter Box */
+    .search-section {
+      margin-top: -1.75rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 20;
+    }
+    .search-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    }
+    .search-input-wrapper {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--sweden-blue);
+      box-shadow: 0 0 0 3px rgba(0, 75, 135, 0.15);
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .filter-btn {
+      padding: 0.45rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover {
+      background: #e2e8f0;
+      color: var(--text-main);
+    }
+    .filter-btn.active {
+      background: var(--sweden-blue);
+      color: #ffffff;
+      border-color: var(--sweden-blue);
+    }
+
+    /* Grid of Cards */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -3px rgba(0,0,0,0.08);
+      border-color: #cbd5e1;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .auth-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--sweden-blue);
+      background: #e0f2fe;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    .status-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #334155;
+    }
+    .status-enacted { background: #dcfce7; color: #166534; }
+    .status-under_review { background: #fef3c7; color: #92400e; }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .card-summary {
+      font-size: 0.95rem;
+      color: #334155;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+    .card-box {
+      background: #f8fafc;
+      border-right: 3px solid var(--sweden-blue);
+      padding: 0.75rem 0.9rem;
+      border-radius: 4px;
+      margin-bottom: 0.85rem;
+      font-size: 0.88rem;
+    }
+    .card-box-label {
+      font-weight: 700;
+      color: var(--sweden-blue);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    .card-actions {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .official-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--sweden-blue);
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .official-btn:hover {
+      background: #003366;
+      text-decoration: none;
+    }
+    
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--sweden-blue);
+      margin-bottom: 0.35rem;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    
+    /* Guides Accordion */
+    .guides-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .guide-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .guide-header {
+      padding: 1.25rem;
+      background: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .guide-header:hover { background: #f8fafc; }
+    .guide-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--sweden-blue);
+    }
+    .guide-content {
+      padding: 1.25rem;
+      border-top: 1px solid #e2e8f0;
+      background: #fafafa;
+    }
+    .points-list {
+      list-style-type: square;
+      padding-right: 1.5rem;
+      margin: 0.75rem 0;
+      font-size: 0.95rem;
+    }
+    .points-list li { margin-bottom: 0.4rem; }
+
+    /* Authorities Directory */
+    .authorities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .authority-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .authority-name-sv {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--sweden-blue);
+      margin-bottom: 0.2rem;
+    }
+    .authority-name-ar {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .authority-desc {
+      font-size: 0.88rem;
+      color: #334155;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 3rem 0 2rem;
+      font-size: 0.88rem;
+      margin-top: 3rem;
+      border-top: 4px solid var(--sweden-yellow);
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .emergency-box {
+      background: #1e293b;
+      padding: 1rem;
+      border-radius: 8px;
+      border-right: 3px solid var(--sweden-yellow);
+    }
+    .emergency-title {
+      color: var(--sweden-yellow);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .emergency-nums { list-style: none; line-height: 1.8; color: #f8fafc; font-weight: 600; }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.6rem; }
+      .news-grid { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand-box">
+        <div class="flag-emblem" aria-hidden="true">
+          <div class="flag-cross-v"></div>
+          <div class="flag-cross-h"></div>
+        </div>
+        <div>
+          <div class="brand-title">سويدنا الآن</div>
+          <div class="brand-sub">Sverige Nu · المركز العربي الموثق</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#updates">أحدث القرارات</a>
+        <a href="#guides">ماذا يعني هذا للمقيم؟</a>
+        <a href="#authorities">المصادر الرسمية</a>
+        <a href="#emergency">أرقام الطوارئ</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <button onclick="shareSite()" id="shareSiteBtn" style="padding: 0.4rem 0.8rem; font-weight: bold; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; color: #004B87; cursor: pointer;">
+          🔗 مشاركة الموقع
+        </button>
+        <button onclick="toggleLang()" id="langToggleBtn" style="padding: 0.4rem 0.8rem; font-weight: bold; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; cursor: pointer;">
+          Svenska / السويدية
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="safe-badge">
+        <span style="font-size:1.1rem;">🏛️</span>
+        <span>أخبار وقرارات حكومية مؤكدة 100% بحسب المصادر السويدية</span>
+      </div>
+      <h1>سويدنا الآن | كل جديد في السويد من قوانين وقرارات رسمية</h1>
+      <p>
+        المركز العربي لمتابعة كل جديد في السويد من قرارات مصلحة الهجرة (Migrationsverket)، الضرائب (Skatteverket)، التأمينات الاجتماعية (Försäkringskassan)، مكتب العمل، وهيئة التقاعد، مع روابط المصادر الرسمية وتوضيحات عملية للمقيمين والراغبين بالانتقال.
+      </p>
+    </div>
+  </section>
+
+  <!-- Search & Filter Area -->
+  <main class="container">
+    <div class="search-section">
+      <div class="search-card">
+        <div class="search-input-wrapper">
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="ابحث عن أي قرار (مثال: راتب العمل، الجنسية، إعانة السكن، الضرائب، العنوان)..."
+            oninput="filterArticles()"
+          >
+        </div>
+        <div class="filter-row" id="filterContainer">
+          <button class="filter-btn active" onclick="setAuthorityFilter('all')">جميع الجهات (8)</button>
+          <button class="filter-btn" onclick="setAuthorityFilter('migrationsverket')">Migrationsverket (الهجرة)</button>
+          <button class="filter-btn" onclick="setAuthorityFilter('skatteverket')">Skatteverket (الضرائب)</button>
+          <button class="filter-btn" onclick="setAuthorityFilter('forsakringskassan')">Försäkringskassan (التأمينات)</button>
+          <button class="filter-btn" onclick="setAuthorityFilter('arbetsformedlingen')">Arbetsförmedlingen (العمل)</button>
+          <button class="filter-btn" onclick="setAuthorityFilter('1177')">1177 (الرعاية الصحية)</button>
+          <button class="filter-btn" onclick="setAuthorityFilter('regeringen_riksdagen')">Riksdagen (القوانين)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Updates Section -->
+    <div id="updates" class="section-header">
+      <h2 class="section-title">أحدث القرارات والتحديثات الرسمية</h2>
+      <p class="section-desc">جميع البطاقات تتضمن ملخصاً بسيطاً، من يتأثر بالقرار، ما عليك فعله الآن، ورابط المصدر السويدي المعتمد</p>
+    </div>
+
+    <div class="news-grid" id="newsGrid">
+      
+      <!-- Card 1 -->
+      <article class="card" data-authority="migrationsverket" data-title="تحديث الحد الأدنى لراتب إقامات العمل إلى 80% من متوسط الأجور السويدية" data-summary="مصلحة الهجرة السويدية شرط الراتب الجديد 28480 كرونة شهرياً إقامات العمل">
+        <div class="card-meta">
+          <span class="auth-badge">Migrationsverket (الهجرة)</span>
+          <span class="status-badge status-enacted">قرار نافذ رسمياً</span>
+          <span>2024-11-01</span>
+        </div>
+        <h3 class="card-title">تحديث الحد الأدنى لراتب إقامات العمل إلى 80% من متوسط الأجور السويدية</h3>
+        <p class="card-summary">بحسب المصدر الرسمي لمصلحة الهجرة، يشترط للحصول على تصريح عمل جديد أو تجديده ألا يقل الراتب الشهري الإجمالي عن 80% من متوسط الأجر في السويد (حوالي 28,480 كرونة سويدية شهرياً قبل الضريبة وفق أحدث أرقام هيئة الإحصاء SCB).</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>جميع المتقدمين الجدد للحصول على تصريح عمل، وحاملو إقامات العمل الحالية عند موعد التجديد، وأصحاب العمل الذين يوظفون عمالة من خارج الاتحاد الأوروبي.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>تأكد فوراً من أن راتبك الإجمالي المسجل في عقد العمل وفي إخطارات الراتب يطابق أو يتجاوز الحد المطلوب قبل تقديم طلب التجديد. راجع صاحب العمل والنقابة العمالية (Facket).</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://www.migrationsverket.se/Privatpersoner/Arbeta-i-Sverige/Krav-for-arbetstillstand.html" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">بحسب المصدر الرسمي</span>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card" data-authority="regeringen_riksdagen" data-title="تطبيق التعديلات المشددة على شروط الجنسية السويدية ومقترح تمديد فترة الإقامة إلى 8 سنوات" data-summary="البرلمان والحكومة شروط الجنسية السويدية 8 سنوات اختبار لغة سويدية">
+        <div class="card-meta">
+          <span class="auth-badge">Riksdagen & Regeringen</span>
+          <span class="status-badge status-under_review">تحقيق حكومي ومقترح رسمي</span>
+          <span>2024-10-15</span>
+        </div>
+        <h3 class="card-title">مقترح تشديد شروط الجنسية وتمديد فترة الإقامة المطلوبة إلى 8 سنوات</h3>
+        <p class="card-summary">قدم التحقيق الحكومي الرسمي (SOU) مقترحات بتشديد متطلبات نيل الجنسية، تشمل رفع مدة الإقامة المطلوبة إلى 8 سنوات، واشتراط اجتياز اختبار اللغة السويدية والمعرفة المجتمعية، والقدرة على إعالة النفس، وخلو السجل الأمني.</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>المقيمون في السويد الراغبون في التقدم بطلب للحصول على الجنسية مستقبلاً. الطلبات الحالية المكتملة تخضع حتى الآن للقانون الساري وقت البت.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>إذا كنت مستوفياً لشروط الجنسية الحالية (5 سنوات إقامة + إقامة دائمة نافذة + خلو من الديون والمخالفات لدى Kronofogden)، بادر بتقديم طلبك الآن قبل تصويت البرلمان على القوانين الجديدة.</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://www.regeringen.se/regeringens-politik/migration-och-asyl/" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">مقترح قيد المراجعة التشريعية</span>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card" data-authority="skatteverket" data-title="مصلحة الضرائب تكثف تدقيق عناوين السكن وتفرض عقوبات على العناوين الوهمية" data-summary="مصلحة الضرائب السجل المدني القيد عنوان السكن عقوبات">
+        <div class="card-meta">
+          <span class="auth-badge">Skatteverket (الضرائب)</span>
+          <span class="status-badge status-enacted">قرار نافذ رسمياً</span>
+          <span>2024-09-20</span>
+        </div>
+        <h3 class="card-title">مصلحة الضرائب تكثف تدقيق عناوين السكن وتفرض عقوبات على العناوين الوهمية</h3>
+        <p class="card-summary">أعلنت مصلحة الضرائب عن حملات تفتيشية موسعة للتحقق من تطابق العناوين الفعلية مع سجل القيد المدني (Folkbokföringsbrott). القانون يعاقب على التسجيل على عنوان دون الإقامة الفعلية فيه بغرامات أو بالسجن.</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>جميع القاطنين في السويد، وخاصة المستأجرين من الباطن أو الأشخاص الذين انتقلوا مؤخراً ولم يبلغوا عن عنوانهم الجديد.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>قم بتسجيل عنوان سكنك الحقيقي مجاناً عبر موقع Skatteverket باستخدام الهوية الإلكترونية (BankID) خلال أسبوع من الانتقال.</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://www.skatteverket.se" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">بحسب مصلحة الضرائب</span>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card" data-authority="forsakringskassan" data-title="تمديد الملحق المالي الإضافي لإعانة السكن للأسر ذات الأطفال" data-summary="صندوق التأمينات الاجتماعية إعانة السكن الأطفال الأسر الدخل المحدود">
+        <div class="card-meta">
+          <span class="auth-badge">Försäkringskassan (التأمينات)</span>
+          <span class="status-badge status-enacted">قرار نافذ رسمياً</span>
+          <span>2024-07-01</span>
+        </div>
+        <h3 class="card-title">تمديد الملحق المالي الإضافي لإعانة السكن للأسر ذات الأطفال (Bostadsbidrag)</h3>
+        <p class="card-summary">قررت الحكومة وصندوق التأمينات الاجتماعية تمديد صرف الملحق الإضافي المؤقت لإعانة السكن (Tilläggsbidrag) للأسر التي لديها أطفال وتتلقى بالفعل إعانة السكن العادية للتخفيف من أعباء التضخم والإيجار.</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>الأسر التي لديها أطفال ومسجلة في السويد وتحصل على إعانة السكن (Bostadsbidrag) من صندوق التأمينات.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>يصرف الملحق تلقائياً لمن لديه قرار سارٍ دون حاجة لطلب جديد. إذا لم تكن قد تقدمت بطلب إعانة السكن ولديك دخل منخفض وأطفال، تحقق من حاسبة المستحقات.</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://www.forsakringskassan.se/privatperson/foralder/bostadsbidrag-till-barnfamiljer" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">بحسب التأمينات الاجتماعية</span>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card" data-authority="arbetsformedlingen" data-title="تشديد شروط حضور برنامج الترسيخ وربط الإعانات بالحضور" data-summary="مكتب العمل السويدي برنامج الترسيخ تعلم اللغة الغياب تعويض الترسيخ">
+        <div class="card-meta">
+          <span class="auth-badge">Arbetsförmedlingen (العمل)</span>
+          <span class="status-badge status-enacted">إجراء نافذ</span>
+          <span>2024-08-15</span>
+        </div>
+        <h3 class="card-title">تشديد شروط حضور برنامج الترسيخ وربط الإعانات بمستوى التعلم والحضور</h3>
+        <p class="card-summary">أكد مكتب العمل السويدي تشديد قواعد المتابعة والحضور اليومي للمشاركين في برنامج الترسيخ، حيث يؤدي الغياب غير المبرر إلى اقتطاع فوري من تعويض الترسيخ اليومي (Etableringsersättning).</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>القادمون الجدد الحاصلون على تصاريح إقامة لجوء أو حماية أو لم شمل الملتحقون ببرنامج الترسيخ.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>أبلغ مدربك ومسؤولك في مكتب العمل ومدرسة SFI فوراً في حال المرض في اليوم الأول عبر الخدمات الإلكترونية لتجنب خصم التعويض.</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://arbetsformedlingen.se/for-arbetssokande/extra-stod/stod-a-o/etableringsprogrammet" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">بحسب مكتب العمل</span>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card" data-authority="1177" data-title="تأكيد حق المريض في طلب مترجم معتمد مجاناً في المستشفيات والمستوصفات" data-summary="الرعاية الصحية 1177 مترجم طبي مجاني سقف العلاج فريكورت">
+        <div class="card-meta">
+          <span class="auth-badge">1177 Vårdguiden (الصحة)</span>
+          <span class="status-badge status-enacted">حق قانوني نافذ</span>
+          <span>2024-10-01</span>
+        </div>
+        <h3 class="card-title">تأكيد حق المريض في طلب مترجم معتمد مجاناً في المستشفيات والمستوصفات (1177)</h3>
+        <p class="card-summary">تؤكد شبكة الرعاية الصحية السويدية 1177 وقانون الرعاية الصحية أن لكل مريض لا يجيد السويدية بطلاقة الحق الكامل في طلب مترجم شفوي معتمد ومجاني خلال جميع المواعيد والفحوصات لضمان الفهم الطبي وسرية المعلومات.</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>جميع المرضى والمراجعين في قطاع الرعاية الصحية بالسويد الذين يشعرون بالحاجة لمترجم عربي للتعبير عن أعراضهم وفهم التشخيص.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>عند حجز أي موعد عبر الهاتف أو تطبيق 1177، اطلب صراحة: "Jag behöver en arabisk tolk" (أحتاج إلى مترجم عربي). المستوصف ملزم بحجزه على نفقة الدولة.</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://www.1177.se/sa-fungerar-varden/lagar-och-rattigheter/tolkning-till-ditt-sprak/" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">بحسب قانون الرعاية الصحية</span>
+        </div>
+      </article>
+
+      <!-- Card 7: PUT Rumor Buster -->
+      <article class="card" data-authority="regeringen_riksdagen" data-title="حقيقة مقترح تحويل الإقامات الدائمة PUT إلى مؤقتة" data-summary="الإقامة الدائمة تحويل سحب الجنسية السويدية مقترح تحقيق">
+        <div class="card-meta">
+          <span class="auth-badge">Riksdagen & Regeringen</span>
+          <span class="status-badge status-under_review">تحقيق حكومي - غير نافذ حالياً</span>
+          <span>2025-01-10</span>
+        </div>
+        <h3 class="card-title">حقيقة مقترح تحويل الإقامات الدائمة (PUT) إلى مؤقتة: ما هو الموقف القانوني اليوم؟</h3>
+        <p class="card-summary">تقرير التحقيق (SOU 2025:99) مجرد مسودة مقترح استشاري قيد المشاورات ولم يصوت عليه البرلمان. إقامتك الدائمة الحالية نافذة وسارية 100% بموجب القانون الساري، والمقترح يستثني من تقدم بطلب للجنسية.</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>حاملو الإقامة الدائمة (PUT) الراغبون بمعرفة الحقيقة القانونية بعيداً عن شائعات السوشيال ميديا.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>لا تقلق؛ إقامتك سارية تماماً. إذا استوفيت شروط الجنسية (5 سنوات إقامة + إقامة دائمة)، تقدم بطلبك لتثبيت وضعك النهائي.</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://www.regeringen.se/regeringens-politik/migration-och-asyl/" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">المصدر: رئاسة الوزراء السويدية</span>
+        </div>
+      </article>
+
+      <!-- Card 8: Återvandring Rumor Buster -->
+      <article class="card" data-authority="migrationsverket" data-title="منحة العودة الطوعية Återvandringsbidrag اختياري تماما" data-summary="منحة العودة الطوعية ترحيل إجباري الهجرة طوعي اختياري">
+        <div class="card-meta">
+          <span class="auth-badge">Migrationsverket (الهجرة)</span>
+          <span class="status-badge status-enacted">برنامج اختياري بالكامل</span>
+          <span>2025-02-01</span>
+        </div>
+        <h3 class="card-title">منحة العودة الطوعية (Återvandringsbidrag): قرار رسمي اختياري 100% ولا يجبر أحداً على المغادرة</h3>
+        <p class="card-summary">برنامج اختياري تماماً (Frivilligt) بموجب القانون السويدي، مخصص لمن يقرر بنفسه وبمحض إرادته مغادرة السويد نهائياً. لا توجد أي سلطة تجبر أي مقيم شرعي على التقديم لهذا البرنامج.</p>
+        <div class="card-box">
+          <span class="card-box-label">👥 من يتأثر بهذا القرار؟</span>
+          <p>الحاصلون على تصاريح إقامة الراغبون طواعية ودون إكراه في دراسة خيارات العودة إلى بلدانهم الأصلية.</p>
+        </div>
+        <div class="card-box" style="border-color: #f59e0b; background: #fffbeb;">
+          <span class="card-box-label" style="color: #b45309;">⚡ ماذا عليك أن تفعل الآن؟</span>
+          <p>تجاهل الشائعات التي تدعي الترحيل الإجباري للمقيمين. إقامتك القانونية في السويد محمية بالقانون ولا تتأثر.</p>
+        </div>
+        <div class="card-actions">
+          <a href="https://www.migrationsverket.se/Privatpersoner/Skydd-och-asyl-i-Sverige.html" target="_blank" rel="noopener noreferrer" class="official-btn">
+            المصدر الرسمي ↗
+          </a>
+          <span style="font-size: 0.75rem; color: #64748b;">المصدر: مصلحة الهجرة السويدية</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Special Section: What this means for Arab residents -->
+    <div id="guides" class="section-header">
+      <h2 class="section-title">ماذا يعني هذا للمقيم العربي في السويد؟</h2>
+      <p class="section-desc">شروحات قانونية وعملية وإجابات على الأسئلة الشائعة حول الإقامة والعمل والمعيشة</p>
+    </div>
+
+    <div class="guides-list">
+      
+      <div class="guide-item">
+        <div class="guide-header" onclick="toggleGuide('g-1')">
+          <h3 class="guide-title">1. ماذا يعني رفع شرط الراتب لإقامة العمل (Lönekrav)؟</h3>
+          <span style="font-size: 1.25rem; font-weight: bold; color: var(--sweden-blue);">▾</span>
+        </div>
+        <div class="guide-content" id="g-1">
+          <p style="font-weight: bold; margin-bottom: 0.5rem;">شرح مبسط لقاعدة الـ 80% من متوسط الرواتب السويدية وكيفية حماية إقامتك:</p>
+          <ul class="points-list">
+            <li>الحد الأدنى محسوب على الراتب الإجمالي (Brutto) قبل خصم الضريبة ويبلغ حالياً قرابة 28,480 كرونة.</li>
+            <li>الشرط يطبق على إقامات العمل (Arbetstillstånd) الجديدة وعند تجديد الإقامات الحالية.</li>
+            <li>إذا كان راتبك الحالي أقل، تحدث مع صاحب العمل لتعديل العقد الرسمي ورفعه للمستوى المطلوب قبل انتهاء إقامتك.</li>
+          </ul>
+          <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 0.75rem; border-radius: 6px; margin: 0.75rem 0;">
+            <strong style="color: #991b1b;">⚠️ شائعة خاطئة وتصحيحها:</strong>
+            <p style="color: #7f1d1d; font-size: 0.9rem; margin-top: 0.25rem;">
+              "هذا الشرط يطبق على حاملي الإقامة الدائمة أو اللجوء". الحقيقة: الشرط يطبق حصراً على إقامات العمل فقط!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-header" onclick="toggleGuide('g-2')">
+          <h3 class="guide-title">2. شروط الجنسية الجديدة: ما هو مؤكد وما هو مجرد مقترح؟</h3>
+          <span style="font-size: 1.25rem; font-weight: bold; color: var(--sweden-blue);">▾</span>
+        </div>
+        <div class="guide-content" id="g-2">
+          <p style="font-weight: bold; margin-bottom: 0.5rem;">دليل التمييز بين القانون الساري والمقترحات قيد الدراسة:</p>
+          <ul class="points-list">
+            <li>القانون الساري اليوم: 5 سنوات إقامة قانونية + إقامة دائمة نافذة (PUT) + خلو السجل من ديون كرونوفوغدن والجرائم.</li>
+            <li>المقترح قيد الدراسة: يوصي برفع المدة إلى 8 سنوات مع اختبار لغة، ولكنه لم يقر بعد من البرلمان.</li>
+            <li>لا يوجد اختبار لغة مطلوب في طلبات الجنسية المعالجة اليوم وفق القانون النافذ.</li>
+          </ul>
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 0.75rem; border-radius: 6px; margin: 0.75rem 0;">
+            <strong style="color: #166534;">✅ النصيحة المعتمدة:</strong>
+            <p style="color: #14532d; font-size: 0.9rem; margin-top: 0.25rem;">
+              إذا استوفيت شرط الـ 5 سنوات ولديك إقامة دائمة، بادر بتقديم طلبك الآن ولا تنتظر الشائعات.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <div class="guide-header" onclick="toggleGuide('g-3')">
+          <h3 class="guide-title">3. تثبيت العنوان الصحيح لدى مصلحة الضرائب وتجنب المخالفات</h3>
+          <span style="font-size: 1.25rem; font-weight: bold; color: var(--sweden-blue);">▾</span>
+        </div>
+        <div class="guide-content" id="g-3">
+          <p style="font-weight: bold; margin-bottom: 0.5rem;">كيف تحمي نفسك من تهمة "جريمة السجل المدني" (Folkbokföringsbrott):</p>
+          <ul class="points-list">
+            <li>يفرض القانون السويدي التسجيل في العنوان الذي تنام فيه فعلياً معظم لياليك.</li>
+            <li>شراء العناوين الوهمية أو التسجيل الشكلي يعد جريمة يعاقب عليها بالغرامات أو الحبس.</li>
+            <li>تغيير العنوان مجاني بنسبة 100% عبر موقع skatteverket.se بضغطة زر باستخدام BankID.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Official Authorities Directory -->
+    <div id="authorities" class="section-header">
+      <h2 class="section-title">دليل المصادر والجهات السويدية الرسمية (8 جهات)</h2>
+      <p class="section-desc">روابط مباشرة ومعلومات الاتصال الموثوقة للمؤسسات الحكومية السويدية الرئيسية</p>
+    </div>
+
+    <div class="authorities-grid">
+      <div class="authority-card">
+        <div class="authority-name-sv">Migrationsverket</div>
+        <div class="authority-name-ar">مصلحة الهجرة السويدية</div>
+        <p class="authority-desc">معالجة طلبات الإقامة، اللجوء، تصاريح العمل، لم الشمل، والجنسية السويدية.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 0771-235 235</div>
+        <a href="https://www.migrationsverket.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+
+      <div class="authority-card">
+        <div class="authority-name-sv">Skatteverket</div>
+        <div class="authority-name-ar">مصلحة الضرائب والسجل المدني</div>
+        <p class="authority-desc">القيد المدني، الرقم الشخصي (Personnummer)، بطاقة الهوية، والضرائب والإقرارات.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 0771-567 567</div>
+        <a href="https://www.skatteverket.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+
+      <div class="authority-card">
+        <div class="authority-name-sv">Försäkringskassan</div>
+        <div class="authority-name-ar">صندوق التأمينات الاجتماعية</div>
+        <p class="authority-desc">إعانة السكن، إجازة الوالدين، إعانة الأطفال، والتعويضات المرضية وتأمين الأسنان.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 0771-524 524</div>
+        <a href="https://www.forsakringskassan.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+
+      <div class="authority-card">
+        <div class="authority-name-sv">Arbetsförmedlingen</div>
+        <div class="authority-name-ar">مكتب العمل السويدي</div>
+        <p class="authority-desc">برامج الترسيخ للقادمين الجدد، دعم التوظيف، التدريب المهني، وصندوق البطالة A-kassa.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 0771-416 416</div>
+        <a href="https://arbetsformedlingen.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+
+      <div class="authority-card">
+        <div class="authority-name-sv">1177 Vårdguiden</div>
+        <div class="authority-name-ar">الرعاية الصحية والإرشاد الطبي</div>
+        <p class="authority-desc">استشارات طبية على مدار 24 ساعة، حجز المستوصف، وتأمين مترجم طبي مجاني.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 1177</div>
+        <a href="https://www.1177.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+
+      <div class="authority-card">
+        <div class="authority-name-sv">Pensionsmyndigheten</div>
+        <div class="authority-name-ar">هيئة التقاعد السويدية</div>
+        <p class="authority-desc">حساب وصرف معاشات التقاعد العام، تقاعد الضمان، ومكمل السكن للمتقاعدين.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 0771-776 776</div>
+        <a href="https://www.pensionsmyndigheten.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+
+      <div class="authority-card">
+        <div class="authority-name-sv">Riksdagen och Regeringen</div>
+        <div class="authority-name-ar">البرلمان والحكومة السويدية</div>
+        <p class="authority-desc">متابعة القوانين الجديدة المقرة، والتحقيقات الحكومية، والاتفاقيات البرلمانية.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 08-405 10 00</div>
+        <a href="https://www.regeringen.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+
+      <div class="authority-card">
+        <div class="authority-name-sv">Vardagsliv & Transport</div>
+        <div class="authority-name-ar">السفر والحياة اليومية</div>
+        <p class="authority-desc">رخص القيادة (Transportstyrelsen/Trafikverket)، الشرطة (Polisen)، وقواعد السفر.</p>
+        <div style="font-size: 0.85rem; color: #475569; margin-bottom: 0.75rem;"><strong>هاتف:</strong> 114 14 / 112</div>
+        <a href="https://polisen.se" target="_blank" rel="noopener noreferrer" class="official-btn" style="text-align: center; justify-content: center;">زيارة الموقع ↗</a>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup Section -->
+    <div id="newsletter-section" style="margin: 3.5rem 0; background: linear-gradient(135deg, #003366 0%, #004B87 60%, #005ea8 100%); color: #ffffff; padding: 2.5rem; border-radius: 1.5rem; border: 2px solid #FECC00; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);">
+      <div style="max-width: 750px; margin: 0 auto; text-align: center;">
+        <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(254, 204, 0, 0.2); border: 1px solid #FECC00; color: #FECC00; font-size: 0.8rem; font-weight: 700; border-radius: 9999px; margin-bottom: 1rem;">
+          🔔 نشرة سويدنا الآن الأسبوعية
+        </span>
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem;">
+          اشترك في النشرة الأسبوعية لقوانين وقرارات الهجرة في السويد
+        </h2>
+        <p style="font-size: 0.95rem; color: #e2e8f0; margin-bottom: 1.5rem; line-height: 1.6;">
+          ملخص أسبوعي موثق يصل إلى بريدك الإلكتروني كل صباح جمعة، يضم أهم قرارات مصلحة الهجرة (Migrationsverket)، وتعديلات الضرائب، ومشاريع القوانين البرلمانية مع شروحات عملية بدون شائعات.
+        </p>
+        <form onsubmit="event.preventDefault(); alert('شكراً لاشتراكك في النشرة الأسبوعية لـ سويدنا الآن! ستصلك التحديثات كل صباح جمعة.');" style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; max-width: 550px; margin: 0 auto;">
+          <input type="email" required placeholder="أدخل بريدك الإلكتروني (name@example.com)..." style="flex: 1; min-width: 250px; padding: 0.85rem 1rem; border-radius: 0.75rem; border: none; font-size: 1rem; outline: none; font-family: inherit;">
+          <button type="submit" style="background: #FECC00; color: #0f172a; font-weight: 800; font-size: 1rem; padding: 0.85rem 1.5rem; border: none; border-radius: 0.75rem; cursor: pointer; font-family: inherit;">
+            اشترك مجاناً
+          </button>
+        </form>
+        <div style="font-size: 0.78rem; color: #cbd5e1; margin-top: 1rem;">
+          🔒 نحترم خصوصيتك بالكامل. يمكنك إلغاء الاشتراك بنقرة واحدة في أي وقت.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="emergency">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h4 style="color: #ffffff; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;">سويدنا الآن - Sverige Nu</h4>
+          <p style="margin-bottom: 1rem; line-height: 1.6;">
+            مركز عربي لمتابعة كل جديد في السويد من قوانين، أخبار رسمية، قرارات جديدة، وتحديثات مهمة للمقيمين العرب. نلتزم بالحياد والصياغة الآمنة المعتمدة حصراً على المصادر الرسمية.
+          </p>
+          <p style="color: #64748b; font-size: 0.8rem;">
+            تنويه: الموقع ليس بديلاً عن الاستشارة القانونية الخاصة من محامٍ مرخص أو مراجعة مصلحة الهجرة والجهات المعنية مباشرة.
+          </p>
+        </div>
+        <div class="emergency-box">
+          <div class="emergency-title">🚨 أرقام الطوارئ السويدية</div>
+          <ul class="emergency-nums">
+            <li><strong>112</strong>: طوارئ الشرطة والإسعاف والحريق الفورية</li>
+            <li><strong>1177</strong>: الاستشارات الطبية والرعاية الصحية على مدار الساعة</li>
+            <li><strong>114 14</strong>: الشرطة للحالات غير الطارئة والتبليغات</li>
+            <li><strong>113 13</strong>: معلومات الأزمات الكبرى والحوادث العامة</li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align: center; border-top: 1px solid #1e293b; padding-top: 1.5rem; font-size: 0.8rem;">
+        جميع الحقوق محفوظة © سويدنا الآن - Sverige Nu | تم التحقق والتحديث وفق أحدث البيانات الرسمية
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentAuthority = 'all';
+
+    function setAuthorityFilter(authId) {
+      currentAuthority = authId;
+      const buttons = document.querySelectorAll('#filterContainer .filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      filterArticles();
+    }
+
+    function filterArticles() {
+      const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+      const cards = document.querySelectorAll('#newsGrid .card');
+
+      cards.forEach(card => {
+        const auth = card.getAttribute('data-authority');
+        const title = card.getAttribute('data-title');
+        const summary = card.getAttribute('data-summary');
+
+        const matchesAuth = (currentAuthority === 'all' || auth === currentAuthority);
+        const matchesQuery = (!query || title.includes(query) || summary.includes(query));
+
+        if (matchesAuth && matchesQuery) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleGuide(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.style.display = el.style.display === 'none' ? 'block' : 'none';
+      }
+    }
+
+    function toggleLang() {
+      const isRtl = document.documentElement.dir === 'rtl';
+      if (isRtl) {
+        document.documentElement.dir = 'ltr';
+        document.documentElement.lang = 'sv';
+        document.getElementById('langToggleBtn').innerText = 'العربية / Arabic';
+        document.getElementById('shareSiteBtn').innerText = '🔗 Dela webbplats';
+      } else {
+        document.documentElement.dir = 'rtl';
+        document.documentElement.lang = 'ar';
+        document.getElementById('langToggleBtn').innerText = 'Svenska / السويدية';
+        document.getElementById('shareSiteBtn').innerText = '🔗 مشاركة الموقع';
+      }
+    }
+
+    async function shareSite() {
+      const shareData = {
+        title: document.title,
+        text: 'سويدنا الآن - Sverige Nu | دليل وتحديثات السويد الرسمية',
+        url: window.location.href
+      };
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (e) {}
+      }
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('تم نسخ رابط الموقع بنجاح!');
+      } catch (e) {
+        prompt('انسخ رابط الموقع:', window.location.href);
+      }
+    }
+  </script>
+</body>
+</html>

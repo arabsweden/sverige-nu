@@ -1,0 +1,8 @@
+{
+  "name": "سويدنا الآن - Sverige Nu | دليل وتحديثات السويد الرسمية",
+  "description": "المنصة العربية المعتمدة لمتابعة أحدث القوانين، القرارات الرسمية، وتحديثات مصلحة الهجرة، الضرائب، التأمينات والعمل في السويد.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
